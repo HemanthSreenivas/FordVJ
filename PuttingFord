@@ -1,0 +1,36 @@
+Steps to Implement the `/collect` Endpoint
+
+1. Define the Endpoint:
+   - Create a new route for `/collect` that accepts POST requests.
+
+2. Access Redis Data:
+   - Connect to the Redis database, similar to how you did for the `/record` endpoint.
+
+3. Retrieve Data:
+   - Use Redis commands to get the list of engine temperature readings stored in the database.
+
+4. Calculate Values:
+   - Extract the most recent temperature reading, which is typically the last item in the list.
+   - Calculate the average engine temperature using the readings retrieved from Redis.
+
+5. Return Response:
+   - Construct a response that includes:
+     - `current_engine_temperature`: The most recent temperature reading.
+     - `average_engine_temperature`: The mean of all temperature readings.
+
+ Testing and Verification
+
+1. Run Your Flask Application:
+   - Ensure that your Docker setup is running both the Flask application and the Redis service.
+
+2. Send a POST Request:
+   - Use tools like Postman, Curl, or a Python script to send a POST request to the `/collect` endpoint.
+
+3. Check Responses:
+   - Verify that the response returns the correct values for `current_engine_temperature` and `average_engine_temperature`.
+
+ Final Steps
+
+After implementing and testing the endpoint, commit your changes to your version control system and push them to your GitHub repository. Then, submit the link to your repo as required.
+
+Let me know if you need any more assistance!
