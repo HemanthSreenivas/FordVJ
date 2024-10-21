@@ -33,4 +33,13 @@ Steps to Implement the `/collect` Endpoint
 
 After implementing and testing the endpoint, commit your changes to your version control system and push them to your GitHub repository. Then, submit the link to your repo as required.
 
-Let me know if you need any more assistance!
+Commit and Push
+Once you’ve implemented and tested your /collect endpoint:
+
+Commit Your Changes:
+                     git add .
+                     git commit -m "Implemented /collect endpoint to retrieve current and average engine temperatures"
+Push to GitHub:
+                  git push origin main
+
+
