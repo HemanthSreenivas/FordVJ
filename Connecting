@@ -1,7 +1,3 @@
-
-
- Overview
-
 1. Imports and Constants:
    - You need to import necessary libraries, including `json`, `redis`, and `Flask`.
    - Define constants for `HISTORY_LENGTH`, which limits the number of temperature readings stored, and `DATA_KEY`, which serves as the identifier for the Redis list.
