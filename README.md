@@ -1,14 +1,14 @@
 # FordVJ
-  #Create the project folder:
+  Create the project folder:
     mkdir sensor_streaming_backend
     cd sensor_streaming_backend
 
-  #Install Flask and Redis libraries:
+  Install Flask and Redis libraries:
     pip install Flask redis
 
-#Set Up Docker
-  #Create a Dockerfile for the Flask app:
-    # Dockerfile
+Set Up Docker
+  Create a Dockerfile for the Flask app:
+     Dockerfile
 FROM python:3.9-slim
 
 WORKDIR /app
