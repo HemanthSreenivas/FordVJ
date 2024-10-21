@@ -1,0 +1,46 @@
+It looks like you're setting up a Flask server within a Docker container! Here’s a recap of what you need to do:
+
+1. **Update `entrypoint.py`:** Replace the contents with the provided code, ensuring it sets up two POST endpoints (`/record` and `/collect`).
+
+   ```python
+   # import the flask web framework
+   from flask import Flask
+
+   # create a Flask server, and allow us to interact with it using the app variable
+   app = Flask(__name__)
+
+   # define an endpoint which accepts POST requests, and is reachable from the /record endpoint
+   @app.route('/record', methods=['POST'])
+   def record_engine_temperature():
+       # return a json payload, and a 200 status code to the client
+       return {"success": True}, 200
+
+   # practically identical to the above
+   @app.route('/collect', methods=['POST'])
+   def collect_engine_temperature():
+       return {"success": True}, 200
+   ```
+
+2. **Modify the Dockerfile:** Update the CMD line to use Gunicorn. It should look something like this:
+
+   ```dockerfile
+   CMD exec gunicorn entrypoint:app
+   ```
+
+3. **Build and Run the Docker Image:** Use the following commands:
+
+   ```bash
+   docker build -t your_image_name .
+   docker run -p 8000:8000 your_image_name
+   ```
+
+4. **Check the Logs:** After running the container, you should see output logs indicating that the Flask app is running, typically showing something like:
+
+   ```
+   [INFO] Starting gunicorn 20.x.x
+   [INFO] Listening at: http://0.0.0.0:8000 (20xx)
+   ```
+
+Once everything is set up, you can send POST requests to `http://localhost:8000/record` and `http://localhost:8000/collect` to see the success responses.
+
+If you encounter any issues, check the logs for errors, and consult the Flask documentation for troubleshooting. Let me know if you need further assistance!
